@@ -7,14 +7,14 @@ public class TypewriterEffect : MonoBehaviour {
     public float speed = 0.1f;
     public string fullText;
     public string currentText = "";
+    public GameObject inputField;
     
-    // Start is called before the first frame update
-    void Start() {
+    public void StartText()
+    {
         StartCoroutine(ShowText());
         Debug.Log("Oingo Boingo");
-
     }
-    IEnumerator ShowText() {
+    public IEnumerator ShowText() {
 
         for (int i = 0; i < fullText.Length; i++)
         {
@@ -27,6 +27,7 @@ public class TypewriterEffect : MonoBehaviour {
             {
                 currentText = "";
                 this.GetComponent<Text>().text = currentText;
+                inputField.SetActive(true);
                 yield break;
             }
             else{
